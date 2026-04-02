@@ -6,40 +6,36 @@ import jakarta.persistence.*;
 public class FlightBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer BookingId;
-    @ManyToOne
-    @JoinColumn(name="customer_id", referencedColumnName = "customerId", nullable = false)
-    private Customer customerId;
-    @ManyToOne
-    @JoinColumn(name="flight_id", referencedColumnName = "flightId", nullable = false)
-    private Flight flightId;
+    private Integer bookingId;
+    private Integer customerId;
+    private Integer flightId;
     public FlightBooking(){}
-    public FlightBooking(Customer customerId, Flight flightId){
+    public FlightBooking(Integer customerId, Integer flightId){
         this.customerId=customerId;
         this.flightId=flightId;
     }
 
-    public Flight getFlightId() {
+    public Integer getFlightId() {
         return flightId;
     }
 
     public Integer getBookingId() {
-        return BookingId;
+        return bookingId;
     }
 
-    public Customer getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Customer customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 
     public void setBookingId(Integer bookingId) {
-        this.BookingId = bookingId;
+        this.bookingId = bookingId;
     }
 
-    public void setFlightId(Flight flightId) {
+    public void setFlightId(Integer flightId) {
         this.flightId = flightId;
     }
 }
